@@ -6,7 +6,7 @@ const Logo = () => {
 	return (
 		<Link
 			href={paths.home}
-			className={`group flex items-center justify-center overflow-hidden pl-[calc(clamp(1.5em,4vw,2.5em)/1)] lg:pl-0`}
+			className={`group flex items-center justify-center overflow-hidden`}
 		>
 			<p className='transition-all duration-500 group-hover:rotate-[360deg]'>
 				©

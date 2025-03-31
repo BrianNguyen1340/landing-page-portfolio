@@ -2,25 +2,29 @@ export const sideMenu = {
 	open: {
 		width: '100%',
 		height: '100vh',
+		borderRadius: 0,
+		backgroundColor: 'black',
+		color: 'white',
+		top: '0',
+		right: '0',
 		transition: {
 			duration: 0.75,
 			type: 'tween',
 			ease: [0.76, 0, 0.24, 1],
 		},
-		borderRadius: 0,
-		backgroundColor: 'black',
-		color: 'white',
 	},
 	closed: {
-		width: '0',
-		height: '0',
+		width: '100px',
+		height: '40px',
+		borderRadius: '24px',
+		top: '24px',
+		right: '24px',
 		transition: {
 			duration: 0.75,
 			delay: 0.35,
 			type: 'tween',
 			ease: [0.76, 0, 0.24, 1],
 		},
-		borderRadius: '24px',
 	},
 }
 

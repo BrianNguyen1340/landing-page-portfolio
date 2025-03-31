@@ -45,7 +45,7 @@ const GradientText: React.FC<GradientTextProps> = ({
 				</div>
 			)}
 			<div
-				className='z-2 relative inline-block animate-gradient bg-cover text-transparent'
+				className='z-2 relative flex h-full animate-gradient items-center justify-center bg-cover text-transparent'
 				style={{
 					...gradientStyle,
 					backgroundClip: 'text',

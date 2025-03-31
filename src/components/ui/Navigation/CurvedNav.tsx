@@ -93,7 +93,7 @@ const Curved = () => {
 	}
 
 	return (
-		<svg className='absolute left-[-99px] top-0 h-screen w-full fill-[rgb(41,41,41)] stroke-none'>
+		<svg className='absolute top-0 z-[-1] h-screen w-full fill-[rgb(41,41,41)] stroke-none'>
 			<motion.path
 				variants={curve}
 				initial='initial'
@@ -134,7 +134,7 @@ const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 		>
 			<div className='flex h-full flex-col justify-between p-[100px]'>
 				<div
-					className='flex flex-col gap-3 text-[56px]'
+					className='flex flex-col gap-3 text-[40px]'
 					onMouseLeave={() => setSelectedIndicator(pathname)}
 				>
 					<div className='mb-10 border-b border-[1px_solid_rgb(153,153,153)] pb-10 text-base capitalize text-[rgb(153,153,153)]'>

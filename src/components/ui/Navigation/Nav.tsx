@@ -20,7 +20,7 @@ const navItems = [
 
 const Nav = () => {
 	return (
-		<nav id='nav' className='hidden lg:block'>
+		<nav id='nav' className='hidden sm:block'>
 			<ul className='flex items-center'>
 				{navItems.map(({ href, content }, index) => (
 					<Magnetic key={index}>

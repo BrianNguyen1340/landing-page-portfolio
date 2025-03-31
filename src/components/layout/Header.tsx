@@ -85,13 +85,13 @@ const Header = () => {
 		<>
 			<header
 				ref={headerRef}
-				className='absolute top-0 z-[1] flex w-full items-center justify-between pt-[calc(clamp(1.5em,4vw,2.5em)/1)] text-lg text-black lg:p-[calc(clamp(1.5em,4vw,2.5em)/1)]'
+				className='absolute top-0 z-[1] flex w-full items-center justify-between px-6 pt-6 text-lg text-black'
 			>
 				<Logo />
 				<Nav />
 				<motion.div
 					ref={sideMenuRef}
-					className='absolute right-0 top-0 bg-[rgb(41,41,41)] text-white lg:hidden'
+					className='absolute bg-[rgb(41,41,41)] text-white sm:hidden'
 					variants={sideMenu}
 					animate={isSideMenuActive ? 'open' : 'closed'}
 					initial='closed'
@@ -100,7 +100,7 @@ const Header = () => {
 						{isSideMenuActive && <SideNav onLinkClick={handleLinkClick} />}
 					</AnimatePresence>
 				</motion.div>
-				<div ref={sideMenuButtonRef} className='lg:hidden'>
+				<div ref={sideMenuButtonRef} className='sm:hidden'>
 					<ButtonSideMenu
 						isActive={isSideMenuActive}
 						toggleMenu={() => setIsSideMenuActive(!isSideMenuActive)}
@@ -118,6 +118,9 @@ const Header = () => {
 					/>
 				</RoundedButton>
 			</div>
+			{isCurvedNavActive && (
+				<div className='fixed right-0 top-0 z-[1] h-screen w-screen bg-black opacity-20'></div>
+			)}
 			<AnimatePresence mode='wait'>
 				{isCurvedNavActive && <CurvedNav />}
 			</AnimatePresence>

@@ -2,7 +2,7 @@ import RotateEarth from '~/components/ui/RotateEarth'
 
 const Hanger = () => {
 	return (
-		<div className='lg:inline-block absolute left-0 top-1/3 z-10 hidden text-white'>
+		<div className='absolute left-0 top-1/3 z-10 hidden text-white lg:inline-block'>
 			<p className='absolute top-1/2 m-0 -translate-y-1/2 px-[4em] text-lg'>
 				<span className='block'>Located </span>
 				<span className='block'>in </span>

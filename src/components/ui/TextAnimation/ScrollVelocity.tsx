@@ -145,15 +145,18 @@ const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
 					key={i}
 					ref={i === 0 ? copyRef : null}
 				>
-					<GradientText>{children}</GradientText>
+					<GradientText className='h-full'>{children}</GradientText>
 				</span>,
 			)
 		}
 
 		return (
-			<div className={`${parallaxClassName} relative`} style={parallaxStyle}>
+			<div
+				className={`${parallaxClassName} relative h-full`}
+				style={parallaxStyle}
+			>
 				<motion.div
-					className={`${scrollerClassName} font-sans flex whitespace-nowrap text-center text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
+					className={`${scrollerClassName} font-sans flex h-full whitespace-nowrap text-center text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
 					style={{ x, ...scrollerStyle }}
 				>
 					{spans}

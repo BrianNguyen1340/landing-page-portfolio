@@ -1,0 +1,48 @@
+{
+	"name": "portfolio",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@react-spring/web": "^9.7.5",
+		"@react-three/drei": "^9.92.0",
+		"@react-three/fiber": "^8.15.16",
+		"clsx": "^2.1.1",
+		"framer-motion": "^12.5.0",
+		"gsap": "^3.12.7",
+		"leva": "^0.10.0",
+		"locomotive-scroll": "^4.1.4",
+		"lucide-react": "^0.483.0",
+		"next": "14.2.25",
+		"react": "^18",
+		"react-animated-cursor": "^2.11.2",
+		"react-dom": "^18",
+		"tailwind-merge": "^3.0.2",
+		"tailwind-scrollbar-hide": "^2.0.0",
+		"tailwindcss-animated": "^2.0.0",
+		"three": "^0.174.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.22.0",
+		"@types/locomotive-scroll": "^4.1.4",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8.57.1",
+		"eslint-config-next": "14.2.25",
+		"globals": "^16.0.0",
+		"postcss": "^8",
+		"prettier": "^3.5.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"sass": "^1.86.0",
+		"tailwindcss": "^3.4.1",
+		"tailwindcss-motion": "^1.1.0",
+		"typescript": "^5",
+		"typescript-eslint": "^8.27.0"
+	}
+}

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--color-dark: #1c1d20;
+	--color-dark-dark: #141517;
+	--color-light: #fff;
+	--color-blue: #455ce9;
+	--color-blue-dark: #334db3;
+	--color-gray: #999d9e;
+	--color-lightgray: #e9eaeb;
+	white: #fff;
+	--color-border: rgba(28, 29, 32, 0.175);
+	--color-border-solid: #d2d2d2;
+	--color-border-light: rgba(255, 255, 255, 0.2);
+	--color-border-solid-light: #545557;
+	--color-text: #1c1d20;
+	--color-text-light: #fff;
+	--alert-error: #ff4444;
+	--alert-success: #24c958;
+	--animation-primary: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+	--animation-fast: all 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+	--animation-smooth: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+	--animation-slow: all 0.9s cubic-bezier(0.7, 0, 0.3, 1);
+	--section-padding: clamp(5em, 21vh, 12em);
+	--container-padding: clamp(2.5em, 8vw, 8em);
+	--gap-padding: clamp(1.5em, 4vw, 2.5em);
+	--vh: 2.9px;
+}
+
+@layer components {
+	.map-image {
+		background-image:
+			linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 30%),
+			url('/image/map.webp');
+		background-size: 300%;
+	}
+
+	.map-image:nth-child(2) {
+		background-position:
+			0% 33.3%,
+			50%;
+	}
+
+	.map-image:nth-child(3) {
+		background-position:
+			0% 66.6%,
+			100%;
+	}
+}
+
+@layer utilities {
+	.rotate-x-90 {
+		transform: rotateX(90deg);
+	}
+
+	.rotate-y--100 {
+		transform: translateY(-100%);
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	--webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	--webkit-font-smoothing: antialiased;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/* section {
+	height: 2000px;
+} */
+
+canvas,
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+img {
+	border: 0;
+}
+
+.text-fill-color-transparent {
+	-webkit-text-fill-color: transparent;
+}
+
+.earth-container {
+	perspective: 1000px;
+}
+
+.earth {
+	transform-style: preserve-3d;
+	animation: rotate 10s infinite linear;
+}
+
+.meridian {
+	transform: rotateY(calc(var(--i) * 30deg));
+}
+
+.parallel {
+	transform: rotateX(calc(var(--i) * 30deg));
+}
+
+@keyframes rotate {
+	from {
+		transform: rotateY(0deg);
+	}
+	to {
+		transform: rotateY(360deg);
+	}
+}

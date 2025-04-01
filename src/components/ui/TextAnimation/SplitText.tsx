@@ -16,7 +16,7 @@ interface SplitTextProps {
 	onLetterAnimationComplete?: () => void
 }
 
-const SplitText: FC<SplitTextProps> = ({
+export const SplitText: FC<SplitTextProps> = ({
 	text = '',
 	className = '',
 	delay = 100,
@@ -110,5 +110,3 @@ const SplitText: FC<SplitTextProps> = ({
 		</p>
 	)
 }
-
-export default SplitText

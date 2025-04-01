@@ -58,7 +58,7 @@ const Character: FC<CharacterProps> = ({
 	)
 }
 
-const CharacterOpacity: FC<CharacterOpacityProps> = ({
+export const CharacterOpacity: FC<CharacterOpacityProps> = ({
 	paragraph,
 	className,
 }) => {
@@ -88,5 +88,3 @@ const CharacterOpacity: FC<CharacterOpacityProps> = ({
 		</p>
 	)
 }
-
-export default CharacterOpacity

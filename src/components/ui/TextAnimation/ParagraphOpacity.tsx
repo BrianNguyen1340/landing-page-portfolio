@@ -8,7 +8,7 @@ interface ParagraphOpacityProps {
 	className?: string
 }
 
-const ParagraphOpacity: FC<ParagraphOpacityProps> = ({
+export const ParagraphOpacity: FC<ParagraphOpacityProps> = ({
 	paragraph,
 	className,
 }) => {
@@ -30,5 +30,3 @@ const ParagraphOpacity: FC<ParagraphOpacityProps> = ({
 		</motion.p>
 	)
 }
-
-export default ParagraphOpacity

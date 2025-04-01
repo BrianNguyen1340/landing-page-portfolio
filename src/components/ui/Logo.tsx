@@ -1,29 +1,46 @@
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 import { paths } from '~/utils/constants'
 
-const Logo = () => {
+export const Logo = () => {
 	return (
-		<Link
-			href={paths.home}
-			className={`group flex items-center justify-center overflow-hidden`}
+		<motion.div
+			variants={{
+				initial: {
+					y: 300,
+				},
+				enter: {
+					y: 0,
+					transition: {
+						duration: 0.6,
+						ease: [0.33, 1, 0.68, 1],
+						delay: 2.5,
+					},
+				},
+			}}
+			initial='initial'
+			animate='enter'
 		>
-			<p className='transition-all duration-500 group-hover:rotate-[360deg]'>
-				©
-			</p>
-			<div className='relative ml-1 flex items-center justify-between overflow-hidden whitespace-nowrap transition-all duration-500'>
-				<div className='relative flex items-center justify-center transition-all duration-500 group-hover:-translate-x-[100%]'>
-					Code by
+			<Link
+				href={paths.home}
+				className={`group flex items-center justify-center overflow-hidden`}
+			>
+				<p className='transition-all duration-500 group-hover:rotate-[360deg]'>
+					©
+				</p>
+				<div className='relative ml-1 flex items-center justify-between overflow-hidden whitespace-nowrap transition-all duration-500'>
+					<div className='relative flex items-center justify-center transition-all duration-500 group-hover:-translate-x-[100%]'>
+						Code by
+					</div>
+					<div className='relative flex items-center justify-center pl-[0.3em] transition-all duration-500 group-hover:-translate-x-[60px]'>
+						Brian
+					</div>
+					<div className='absolute left-[90px] flex items-center justify-center pl-[1em] transition-all duration-500 group-hover:-translate-x-[60px]'>
+						Nguyen
+					</div>
 				</div>
-				<div className='relative flex items-center justify-center pl-[0.3em] transition-all duration-500 group-hover:-translate-x-[60px]'>
-					Brian
-				</div>
-				<div className='absolute left-[90px] flex items-center justify-center pl-[1em] transition-all duration-500 group-hover:-translate-x-[60px]'>
-					Nguyen
-				</div>
-			</div>
-		</Link>
+			</Link>
+		</motion.div>
 	)
 }
-
-export default Logo

@@ -7,7 +7,7 @@ interface InnerProps {
 	children: ReactNode
 }
 
-const Inner: FC<InnerProps> = ({ children }) => {
+export const Inner: FC<InnerProps> = ({ children }) => {
 	const anim = (variants: Variants) => {
 		return {
 			initial: 'initial',
@@ -31,5 +31,3 @@ const Inner: FC<InnerProps> = ({ children }) => {
 		</div>
 	)
 }
-
-export default Inner

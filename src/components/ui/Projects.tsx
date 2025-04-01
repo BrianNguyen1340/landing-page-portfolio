@@ -163,14 +163,14 @@ const Project: FC<ProjectProps> = ({ index, title, href, setModal }) => {
 			id='projects'
 			onMouseEnter={() => setModal({ active: true, index })}
 			onMouseLeave={() => setModal({ active: false, index })}
-			className='group flex w-full cursor-pointer items-center justify-between border-t border-[1px_solid_rgb(201,201,201)] px-[100px] py-[50px] transition-all duration-200 last-of-type:border-b hover:opacity-50'
+			className='group flex w-full cursor-pointer items-center justify-between border-t border-[1px_solid_rgb(201,201,201)] p-[calc(clamp(5em,21vh,12em)/3.5)_0_calc(clamp(5em,21vh,12em)/3)0] transition-all duration-200 last-of-type:border-b hover:opacity-50'
 		>
-			<h2 className='m-0 text-6xl transition-all duration-500 group-hover:translate-x-[-10px]'>
+			<div className='m-0 w-[70%] pl-[calc(clamp(2.5em,8vw,8em)*1)] text-6xl transition-all duration-500 group-hover:translate-x-[-10px]'>
 				{title}
-			</h2>
-			<p className='transition-all duration-500 group-hover:translate-x-[10px]'>
+			</div>
+			<div className='w-[30%] transition-all duration-500 group-hover:translate-x-[10px]'>
 				Design & Development
-			</p>
+			</div>
 		</Link>
 	)
 }
@@ -190,18 +190,18 @@ const projects = [
 	},
 ]
 
-const Projects = () => {
+export const Projects = () => {
 	const [modal, setModal] = useState<{ active: boolean; index: number }>({
 		active: false,
 		index: 0,
 	})
 
 	return (
-		<>
-			<div className='mx-auto w-[1000px] pb-[clamp(1.5em,4vw,2.5em)] text-start uppercase text-[#1c1d20] opacity-50'>
+		<div className='mx-auto hidden max-w-[100em] px-[clamp(2.5em,8vw,8em)] lg:block'>
+			<div className='w-[70%] pb-[clamp(1.5em,4vw,2.5em)] pl-[calc(clamp(2.5em,8vw,8em)*1)] text-start uppercase text-[#1c1d20] opacity-50'>
 				recent works
 			</div>
-			<ul className='relative mx-auto flex w-[1200px] flex-col items-center justify-center'>
+			<ul className='relative flex flex-col items-center justify-center'>
 				{projects.map(({ title, href }, index) => (
 					<li className='w-full'>
 						<Project
@@ -215,8 +215,6 @@ const Projects = () => {
 				))}
 			</ul>
 			<Modal modal={modal} projects={projects} />
-		</>
+		</div>
 	)
 }
-
-export default Projects

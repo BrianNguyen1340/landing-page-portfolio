@@ -1,4 +1,4 @@
-const RotateEarth = () => {
+export const RotateEarth = () => {
 	return (
 		<div className='absolute right-[2.2em] top-[2.2em] h-[3em] w-[3em]'>
 			<div className='earth relative h-full w-full'>
@@ -57,5 +57,3 @@ const RotateEarth = () => {
 		</div>
 	)
 }
-
-export default RotateEarth

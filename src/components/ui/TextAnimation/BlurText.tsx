@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, FC, HTMLAttributes } from 'react'
 import { useSprings, animated, SpringValue } from '@react-spring/web'
 
-const AnimatedSpan = animated.span as React.FC<
-	React.HTMLAttributes<HTMLSpanElement>
->
+const AnimatedSpan = animated.span as FC<HTMLAttributes<HTMLSpanElement>>
 
 interface BlurTextProps {
 	text?: string
@@ -22,7 +20,7 @@ interface BlurTextProps {
 	onAnimationComplete?: () => void
 }
 
-const BlurText: React.FC<BlurTextProps> = ({
+export const BlurText: FC<BlurTextProps> = ({
 	text = '',
 	delay = 200,
 	className = '',
@@ -120,5 +118,3 @@ const BlurText: React.FC<BlurTextProps> = ({
 		</p>
 	)
 }
-
-export default BlurText

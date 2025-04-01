@@ -120,7 +120,7 @@ const Footer = () => {
 	)
 }
 
-const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
+export const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 	const pathname = usePathname()
 	const [selectedIndicator, setSelectedIndicator] = useState<string>(pathname)
 
@@ -157,5 +157,3 @@ const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 		</motion.nav>
 	)
 }
-
-export default CurvedNav

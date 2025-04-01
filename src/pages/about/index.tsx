@@ -1,7 +1,7 @@
 import useTitle from '~/hooks/useTitle'
 // import Inner from '~/components/layout/Inner'
 // import Stairs from '~/components/layout/Stairs'
-import Curved from '~/components/layout/Curved'
+import { Curved } from '~/components/layout/transition/Curved'
 
 const About = () => {
 	useTitle('About - Nguyen Nhu Huynh')

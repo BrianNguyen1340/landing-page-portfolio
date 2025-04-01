@@ -5,9 +5,9 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 
 import '~/styles/globals.css'
-import WordPreLoader from '~/components/ui/Preloader/WordPreLoader'
-import Header from '~/components/layout/Header'
-import Footer from '~/components/layout/Footer'
+import { WordPreLoader } from '~/components/ui/Preloader/WordPreLoader'
+import { Header } from '~/components/layout/Header'
+import { Footer } from '~/components/layout/Footer'
 
 export default function App({ Component, pageProps, router }: AppProps) {
 	const [isLoading, setIsLoading] = useState<boolean>(true)

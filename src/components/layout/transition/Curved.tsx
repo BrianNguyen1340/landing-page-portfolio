@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { motion, Variants } from 'framer-motion'
 
 import { curve, text, translate } from '~/anims/curved'
-import MainLayout from '~/components/layout/MainLayout'
+import { MainLayout } from '~/components/layout/MainLayout'
 
 interface CurvedProps {
 	children: ReactNode
@@ -63,7 +63,7 @@ const CurvedSvg: FC<CurvedSvgProps> = ({ height, width }) => {
 	)
 }
 
-const Curved: FC<CurvedProps> = ({ children }) => {
+export const Curved: FC<CurvedProps> = ({ children }) => {
 	const anim = (variants: Variants) => {
 		return {
 			initial: 'initial',
@@ -120,5 +120,3 @@ const Curved: FC<CurvedProps> = ({ children }) => {
 		</>
 	)
 }
-
-export default Curved

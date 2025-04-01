@@ -103,7 +103,7 @@ const PerspectiveText: React.FC<PerspectiveTextProps> = ({ label }) => {
 	)
 }
 
-const SideNav: FC<SideNavProps> = ({ onLinkClick }) => {
+export const SideNav: FC<SideNavProps> = ({ onLinkClick }) => {
 	return (
 		<div className='flex h-full flex-col justify-between overflow-hidden px-10 pb-[50px] pt-[100px]'>
 			<div className='flex flex-col gap-4'>
@@ -147,5 +147,3 @@ const SideNav: FC<SideNavProps> = ({ onLinkClick }) => {
 		</div>
 	)
 }
-
-export default SideNav

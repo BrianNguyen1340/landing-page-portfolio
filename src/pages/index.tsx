@@ -1,10 +1,10 @@
-import Curved from '~/components/layout/Curved'
-import AvatarBackground from '~/components/ui/AvatarBackground'
-import Hanger from '~/components/ui/Hanger'
-import HomeIntro from '~/components/ui/HomeIntro'
-import InfiniteTextMoveOnScroll from '~/components/ui/InfiniteText'
-import JobTitle from '~/components/ui/JobTitle'
-import Projects from '~/components/ui/Projects'
+import { Curved } from '~/components/layout/transition/Curved'
+import { AvatarBackground } from '~/components/ui/AvatarBackground'
+import { Hanger } from '~/components/ui/Hanger'
+import { HomeIntro } from '~/components/ui/HomeIntro'
+import { InfiniteTextMoveOnScroll } from '~/components/ui/InfiniteText'
+import { JobTitle } from '~/components/ui/JobTitle'
+import { Projects } from '~/components/ui/Projects'
 import useTitle from '~/hooks/useTitle'
 
 const index = () => {

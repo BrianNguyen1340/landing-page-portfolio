@@ -4,7 +4,7 @@ interface MainLayoutProps {
 	children: ReactNode
 }
 
-const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 	return (
 		<main className='relative h-auto w-screen overflow-hidden bg-transparent'>
 			<div className='relative box-border w-screen will-change-transform'>
@@ -13,5 +13,3 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 		</main>
 	)
 }
-
-export default MainLayout

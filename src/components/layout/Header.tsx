@@ -7,13 +7,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { sideMenu } from '~/anims/sideMenu'
-import Logo from '~/components/ui/Logo'
-import Nav from '~/components/ui/Navigation/Nav'
-import CurvedNav from '~/components/ui/Navigation/CurvedNav'
-import RoundedButton from '~/components/ui/RoundedButton'
-import SideNav, { ButtonSideMenu } from '~/components/ui/Navigation/SideNav'
+import { Logo } from '~/components/ui/Logo'
+import { Nav } from '~/components/ui/Navigation/Nav'
+import { CurvedNav } from '~/components/ui/Navigation/CurvedNav'
+import { RoundedButton } from '~/components/ui/RoundedButton'
+import { ButtonSideMenu, SideNav } from '~/components/ui/Navigation/SideNav'
 
-const Header = () => {
+export const Header = () => {
 	const headerRef = useRef<HTMLDivElement | null>(null)
 	const curvedButtonRef = useRef<HTMLDivElement | null>(null)
 	const sideMenuRef = useRef<HTMLDivElement | null>(null)
@@ -119,7 +119,7 @@ const Header = () => {
 				</RoundedButton>
 			</div>
 			{isCurvedNavActive && (
-				<div className='fixed right-0 top-0 z-[1] h-screen w-screen bg-black opacity-20'></div>
+				<div className='fixed right-0 top-0 z-[1] h-screen w-screen bg-gradient-to-r from-[hsla(220,13%,0%,0.3)_40%] to-[hsla(220,13%,0%,1)_80%] opacity-30'></div>
 			)}
 			<AnimatePresence mode='wait'>
 				{isCurvedNavActive && <CurvedNav />}
@@ -127,5 +127,3 @@ const Header = () => {
 		</>
 	)
 }
-
-export default Header

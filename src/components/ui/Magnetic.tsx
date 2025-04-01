@@ -7,7 +7,7 @@ interface MagneticProps {
 	children: ReactElement
 }
 
-const Magnetic: FC<MagneticProps> = ({ children }) => {
+export const Magnetic: FC<MagneticProps> = ({ children }) => {
 	const magnetic = useRef<HTMLElement | null>(null)
 
 	useEffect(() => {
@@ -48,5 +48,3 @@ const Magnetic: FC<MagneticProps> = ({ children }) => {
 
 	return cloneElement(children, { ref: magnetic })
 }
-
-export default Magnetic

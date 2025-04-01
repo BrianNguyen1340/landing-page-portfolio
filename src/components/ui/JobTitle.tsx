@@ -1,8 +1,23 @@
-const JobTitle = () => {
+import { motion } from 'framer-motion'
+
+export const JobTitle = () => {
 	return (
-		<div
-			data-scroll
-			data-scroll-speed={0.1}
+		<motion.div
+			variants={{
+				initial: {
+					y: 300,
+				},
+				enter: {
+					y: 0,
+					transition: {
+						duration: 0.6,
+						ease: [0.33, 1, 0.68, 1],
+						delay: 2.5,
+					},
+				},
+			}}
+			initial='initial'
+			animate='enter'
 			className='absolute left-[70%] top-[20%] z-10 hidden text-[36px] lg:block'
 		>
 			<svg
@@ -20,8 +35,6 @@ const JobTitle = () => {
 			</svg>
 			<p className='mb-5'>Designer</p>
 			<p>& Freelancer</p>
-		</div>
+		</motion.div>
 	)
 }
-
-export default JobTitle

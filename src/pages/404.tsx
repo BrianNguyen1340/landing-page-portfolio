@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 import { paths } from '~/utils/constants'
-import FuzzyText from '~/components/ui/TextAnimation/FuzzyText'
-import GradientText from '~/components/ui/TextAnimation/GradientText'
+import { FuzzyText } from '~/components/ui/TextAnimation/FuzzyText'
+import { GradientText } from '~/components/ui/TextAnimation/GradientText'
 
 export default function Custom404() {
 	return (

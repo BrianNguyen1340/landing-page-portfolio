@@ -10,7 +10,8 @@ import {
 	useVelocity,
 	useAnimationFrame,
 } from 'framer-motion'
-import GradientText from './GradientText'
+
+import { GradientText } from './GradientText'
 
 interface VelocityMapping {
 	input: [number, number]
@@ -64,7 +65,7 @@ const useElementWidth = (ref: React.RefObject<HTMLElement>): number => {
 	return width
 }
 
-const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
+export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
 	scrollContainerRef,
 	texts = [],
 	velocity = 100,
@@ -188,5 +189,3 @@ const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
 		</>
 	)
 }
-
-export default ScrollVelocity

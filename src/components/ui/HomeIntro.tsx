@@ -1,9 +1,10 @@
-import RoundedButton from '~/components/ui/RoundedButton'
-import CharacterOpacity from './TextAnimation/CharacterOpacity'
 import Link from 'next/link'
-import { paths } from '~/utils/constants'
 
-const HomeIntro = () => {
+import { paths } from '~/utils/constants'
+import { RoundedButton } from '~/components/ui/RoundedButton'
+import { CharacterOpacity } from '~/components/ui/TextAnimation/CharacterOpacity'
+
+export const HomeIntro = () => {
 	return (
 		<div className='relative px-[calc(6vw*2)]'>
 			<div className='flex w-full flex-col items-start justify-between md:flex-row'>
@@ -31,5 +32,3 @@ const HomeIntro = () => {
 		</div>
 	)
 }
-
-export default HomeIntro

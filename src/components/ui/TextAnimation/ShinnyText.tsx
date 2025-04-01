@@ -7,7 +7,7 @@ interface ShinyTextProps {
 	className?: string
 }
 
-const ShinyText: React.FC<ShinyTextProps> = ({
+export const ShinyText: React.FC<ShinyTextProps> = ({
 	text,
 	disabled = false,
 	speed = 5,
@@ -30,5 +30,3 @@ const ShinyText: React.FC<ShinyTextProps> = ({
 		</div>
 	)
 }
-
-export default ShinyText

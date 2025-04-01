@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 
 interface CircularTextProps {
@@ -30,7 +30,7 @@ const getTransition = (duration: number, from: number) => ({
 	},
 })
 
-const CircularText: React.FC<CircularTextProps> = ({
+export const CircularText: FC<CircularTextProps> = ({
 	text,
 	spinDuration = 20,
 	onHover = 'speedUp',
@@ -124,5 +124,3 @@ const CircularText: React.FC<CircularTextProps> = ({
 		</motion.div>
 	)
 }
-
-export default CircularText

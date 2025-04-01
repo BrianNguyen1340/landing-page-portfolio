@@ -7,7 +7,7 @@ interface StairsProps {
 	children: ReactNode
 }
 
-const Stairs: FC<StairsProps> = ({ children }) => {
+export const Stairs: FC<StairsProps> = ({ children }) => {
 	const anim = (variants: Variants, custom: number | null = null) => {
 		return {
 			initial: 'initial',
@@ -39,5 +39,3 @@ const Stairs: FC<StairsProps> = ({ children }) => {
 		</div>
 	)
 }
-
-export default Stairs

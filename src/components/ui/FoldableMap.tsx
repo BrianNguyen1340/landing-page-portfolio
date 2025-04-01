@@ -9,7 +9,7 @@ import {
 } from 'framer-motion'
 import { useState } from 'react'
 
-const FoldableMap = () => {
+export const FoldableMap = () => {
 	const [isFolded, setIsFolded] = useState<boolean>(false)
 
 	const xDrag = useMotionValue(0)
@@ -77,5 +77,3 @@ const FoldableMap = () => {
 		</div>
 	)
 }
-
-export default FoldableMap

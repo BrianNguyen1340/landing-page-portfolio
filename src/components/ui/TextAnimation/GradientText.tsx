@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 interface GradientTextProps {
 	children: ReactNode
@@ -8,7 +8,7 @@ interface GradientTextProps {
 	showBorder?: boolean
 }
 
-const GradientText: React.FC<GradientTextProps> = ({
+export const GradientText: FC<GradientTextProps> = ({
 	children,
 	className = '',
 	colors = ['#ff8c00', '#f4a261', '#e76f51'],
@@ -58,5 +58,3 @@ const GradientText: React.FC<GradientTextProps> = ({
 		</div>
 	)
 }
-
-export default GradientText

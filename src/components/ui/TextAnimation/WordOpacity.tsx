@@ -24,7 +24,10 @@ const Word: FC<WordProps> = ({ children, progress, range }) => {
 	)
 }
 
-const WordOpacity: FC<WordOpacityProps> = ({ paragraph = '', className }) => {
+export const WordOpacity: FC<WordOpacityProps> = ({
+	paragraph = '',
+	className,
+}) => {
 	const container = useRef<HTMLDivElement>(null)
 	const { scrollYProgress } = useScroll({
 		target: container,
@@ -47,5 +50,3 @@ const WordOpacity: FC<WordOpacityProps> = ({ paragraph = '', className }) => {
 		</p>
 	)
 }
-
-export default WordOpacity

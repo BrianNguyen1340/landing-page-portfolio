@@ -3,11 +3,14 @@
 import { ButtonHTMLAttributes, FC, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-import Magnetic from '~/components/ui/Magnetic'
+import { Magnetic } from '~/components/ui/Magnetic'
 
 interface RoundedButtonProps extends ButtonHTMLAttributes<HTMLDivElement> {}
 
-const RoundedButton: FC<RoundedButtonProps> = ({ children, ...props }) => {
+export const RoundedButton: FC<RoundedButtonProps> = ({
+	children,
+	...props
+}) => {
 	const circleRef = useRef<HTMLDivElement>(null)
 	const timelineRef = useRef<gsap.core.Timeline | null>(null)
 
@@ -60,5 +63,3 @@ const RoundedButton: FC<RoundedButtonProps> = ({ children, ...props }) => {
 		</Magnetic>
 	)
 }
-
-export default RoundedButton

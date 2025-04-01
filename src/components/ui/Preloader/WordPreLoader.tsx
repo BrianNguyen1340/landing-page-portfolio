@@ -22,7 +22,7 @@ interface WordPreLoaderProps {
 	className?: string
 }
 
-const WordPreLoader: FC<WordPreLoaderProps> = ({ className }) => {
+export const WordPreLoader: FC<WordPreLoaderProps> = ({ className }) => {
 	const [index, setIndex] = useState(0)
 	const [dimension, setDimension] = useState<{ width: number; height: number }>(
 		{ width: 0, height: 0 },
@@ -115,5 +115,3 @@ const WordPreLoader: FC<WordPreLoaderProps> = ({ className }) => {
 		</motion.div>
 	)
 }
-
-export default WordPreLoader

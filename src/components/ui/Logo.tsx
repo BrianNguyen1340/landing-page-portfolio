@@ -5,23 +5,7 @@ import { paths } from '~/utils/constants'
 
 export const Logo = () => {
 	return (
-		<motion.div
-			variants={{
-				initial: {
-					y: 300,
-				},
-				enter: {
-					y: 0,
-					transition: {
-						duration: 0.6,
-						ease: [0.33, 1, 0.68, 1],
-						delay: 2.5,
-					},
-				},
-			}}
-			initial='initial'
-			animate='enter'
-		>
+		<motion.div id='logo'>
 			<Link
 				href={paths.home}
 				className={`group flex items-center justify-center overflow-hidden`}

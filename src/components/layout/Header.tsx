@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { sideMenu } from '~/anims/sideMenu'
+import { sideNav } from '~/anims/sideNav'
 import { Logo } from '~/components/ui/Logo'
 import { Nav } from '~/components/ui/Navigation/Nav'
 import { CurvedNav } from '~/components/ui/Navigation/CurvedNav'
@@ -15,9 +15,10 @@ import { ButtonSideMenu, SideNav } from '~/components/ui/Navigation/SideNav'
 
 export const Header = () => {
 	const headerRef = useRef<HTMLDivElement | null>(null)
+	const curvedNavRef = useRef<HTMLDivElement | null>(null)
 	const curvedButtonRef = useRef<HTMLDivElement | null>(null)
-	const sideMenuRef = useRef<HTMLDivElement | null>(null)
-	const sideMenuButtonRef = useRef<HTMLDivElement | null>(null)
+	const sideNavRef = useRef<HTMLDivElement | null>(null)
+	const sideNavButtonRef = useRef<HTMLDivElement | null>(null)
 
 	const [isCurvedNavActive, setIsCurvedNavActive] = useState<boolean>(false)
 	const [isSideMenuActive, setIsSideMenuActive] = useState<boolean>(false)
@@ -27,10 +28,31 @@ export const Header = () => {
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
-				sideMenuRef.current &&
-				!sideMenuRef.current.contains(event.target as Node) &&
-				sideMenuButtonRef.current &&
-				!sideMenuButtonRef.current.contains(event.target as Node)
+				curvedNavRef.current &&
+				!curvedNavRef.current.contains(event.target as Node) &&
+				curvedButtonRef.current &&
+				!curvedButtonRef.current.contains(event.target as Node)
+			) {
+				setIsCurvedNavActive(false)
+			}
+		}
+
+		if (isCurvedNavActive) {
+			document.addEventListener('mousedown', handleClickOutside)
+		}
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [isCurvedNavActive])
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				sideNavRef.current &&
+				!sideNavRef.current.contains(event.target as Node) &&
+				sideNavButtonRef.current &&
+				!sideNavButtonRef.current.contains(event.target as Node)
 			) {
 				setIsSideMenuActive(false)
 			}
@@ -90,9 +112,9 @@ export const Header = () => {
 				<Logo />
 				<Nav />
 				<motion.div
-					ref={sideMenuRef}
+					ref={sideNavRef}
 					className='absolute bg-[rgb(41,41,41)] text-white sm:hidden'
-					variants={sideMenu}
+					variants={sideNav}
 					animate={isSideMenuActive ? 'open' : 'closed'}
 					initial='closed'
 				>
@@ -100,7 +122,7 @@ export const Header = () => {
 						{isSideMenuActive && <SideNav onLinkClick={handleLinkClick} />}
 					</AnimatePresence>
 				</motion.div>
-				<div ref={sideMenuButtonRef} className='sm:hidden'>
+				<div ref={sideNavButtonRef} className='sm:hidden'>
 					<ButtonSideMenu
 						isActive={isSideMenuActive}
 						toggleMenu={() => setIsSideMenuActive(!isSideMenuActive)}
@@ -118,11 +140,12 @@ export const Header = () => {
 					/>
 				</RoundedButton>
 			</div>
-			{isCurvedNavActive && (
-				<div className='fixed right-0 top-0 z-[1] h-screen w-screen bg-gradient-to-r from-[hsla(220,13%,0%,0.3)_40%] to-[hsla(220,13%,0%,1)_80%] opacity-30'></div>
-			)}
 			<AnimatePresence mode='wait'>
-				{isCurvedNavActive && <CurvedNav />}
+				{isCurvedNavActive && (
+					<div ref={curvedNavRef}>
+						<CurvedNav />
+					</div>
+				)}
 			</AnimatePresence>
 		</>
 	)

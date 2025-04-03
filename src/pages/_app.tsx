@@ -20,7 +20,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 				setIsLoading(false)
 				document.body.style.cursor = 'default'
 				window.scrollTo(0, 0)
-			}, 2000)
+			}, 1000)
 		})()
 	}, [])
 

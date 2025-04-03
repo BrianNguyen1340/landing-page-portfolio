@@ -27,8 +27,8 @@ const config: Config = {
 		extend: {
 			keyframes: {
 				shine: {
-					'0%': { 'background-position': '100%' },
-					'100%': { 'background-position': '-100%' },
+					'0%': { backgroundPosition: '100%' },
+					'100%': { backgroundPosition: '-100%' },
 				},
 				gradient: {
 					'0%': { backgroundPosition: '0% 50%' },

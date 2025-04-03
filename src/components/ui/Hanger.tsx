@@ -5,21 +5,7 @@ import { RotateEarth } from '~/components/ui/RotateEarth'
 export const Hanger = () => {
 	return (
 		<motion.div
-			variants={{
-				initial: {
-					y: 300,
-				},
-				enter: {
-					y: 0,
-					transition: {
-						duration: 0.6,
-						ease: [0.33, 1, 0.68, 1],
-						delay: 2.5,
-					},
-				},
-			}}
-			initial='initial'
-			animate='enter'
+			id='hanger'
 			className='absolute left-0 top-1/3 z-10 hidden text-white lg:inline-block'
 		>
 			<p className='absolute top-1/2 m-0 -translate-y-1/2 px-[4em] text-lg'>

@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { FC } from 'react'
-import { slideIn } from '~/anims/sideMenu'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+import { slideIn } from '~/anims/sideNav'
 
 interface ButtonProps {
 	isActive: boolean
@@ -92,7 +93,7 @@ const PerspectiveText: React.FC<PerspectiveTextProps> = ({ label }) => {
 			<p
 				style={{
 					transition: 'all 0.75s cubic-bezier(0.76, 0, 0.24, 1)',
-					transform: 'rotateX(-90deg) translateY(9px)',
+					transform: 'rotateX(-90deg) translateY(14px)',
 					transformOrigin: 'bottom center',
 				}}
 				className='pointer-events-none absolute uppercase opacity-0 group-hover:opacity-100'

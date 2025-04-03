@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 import { Curved } from '~/components/layout/transition/Curved'
 import { AvatarBackground } from '~/components/ui/AvatarBackground'
 import { Hanger } from '~/components/ui/Hanger'
@@ -13,12 +15,29 @@ const index = () => {
 	return (
 		<Curved>
 			<div id='home-page'>
-				<section className='relative overflow-hidden'>
+				<motion.section
+					variants={{
+						initial: {
+							y: 300,
+						},
+						enter: {
+							y: 0,
+							transition: {
+								duration: 1,
+								ease: [0.33, 1, 0.68, 1],
+								delay: 1.2,
+							},
+						},
+					}}
+					initial='initial'
+					animate='enter'
+					className='relative overflow-hidden bg-[#feefd0]'
+				>
 					<InfiniteTextMoveOnScroll />
 					<Hanger />
 					<JobTitle />
 					<AvatarBackground />
-				</section>
+				</motion.section>
 				<section className='mb-20 py-[clamp(5em,21vh,12em)] md:mb-0'>
 					<HomeIntro />
 				</section>

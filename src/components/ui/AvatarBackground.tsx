@@ -3,22 +3,8 @@ import { motion } from 'framer-motion'
 export const AvatarBackground = () => {
 	return (
 		<motion.div
-			variants={{
-				initial: {
-					y: 300,
-				},
-				enter: {
-					y: 0,
-					transition: {
-						duration: 0.6,
-						ease: [0.33, 1, 0.68, 1],
-						delay: 2.5,
-					},
-				},
-			}}
-			initial='initial'
-			animate='enter'
-			className='relative h-screen overflow-hidden bg-[#feefd0]'
+			id='avatar-background'
+			className='relative h-screen overflow-hidden'
 		>
 			<div className='absolute left-0 top-0 z-[1] h-full w-full'>
 				<img

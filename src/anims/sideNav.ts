@@ -1,4 +1,4 @@
-export const sideMenu = {
+export const sideNav = {
 	open: {
 		width: '100%',
 		height: '100vh',

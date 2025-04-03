@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 import { paths } from '~/utils/constants'
 import { Magnetic } from '~/components/ui/Magnetic'
 
 const navItems = [
-	{
-		href: paths.work,
-		content: 'work',
-	},
+	// {
+	// 	href: paths.work,
+	// 	content: 'work',
+	// },
 	{
 		href: paths.about,
 		content: 'about',
@@ -21,25 +20,7 @@ const navItems = [
 
 export const Nav = () => {
 	return (
-		<motion.nav
-			variants={{
-				initial: {
-					y: 300,
-				},
-				enter: {
-					y: 0,
-					transition: {
-						duration: 0.6,
-						ease: [0.33, 1, 0.68, 1],
-						delay: 2.5,
-					},
-				},
-			}}
-			initial='initial'
-			animate='enter'
-			id='nav'
-			className='hidden sm:block'
-		>
+		<nav id='nav' className='hidden sm:block'>
 			<ul className='flex items-center'>
 				{navItems.map(({ href, content }, index) => (
 					<Magnetic key={index}>
@@ -54,6 +35,6 @@ export const Nav = () => {
 					</Magnetic>
 				))}
 			</ul>
-		</motion.nav>
+		</nav>
 	)
 }

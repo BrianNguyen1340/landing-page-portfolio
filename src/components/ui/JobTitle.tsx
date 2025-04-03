@@ -1,23 +1,7 @@
-import { motion } from 'framer-motion'
-
 export const JobTitle = () => {
 	return (
-		<motion.div
-			variants={{
-				initial: {
-					y: 300,
-				},
-				enter: {
-					y: 0,
-					transition: {
-						duration: 0.6,
-						ease: [0.33, 1, 0.68, 1],
-						delay: 2.5,
-					},
-				},
-			}}
-			initial='initial'
-			animate='enter'
+		<div
+			id='job-title'
 			className='absolute left-[70%] top-[20%] z-10 hidden text-[36px] lg:block'
 		>
 			<svg
@@ -35,6 +19,6 @@ export const JobTitle = () => {
 			</svg>
 			<p className='mb-5'>Designer</p>
 			<p>& Freelancer</p>
-		</motion.div>
+		</div>
 	)
 }

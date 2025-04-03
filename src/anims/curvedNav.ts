@@ -1,4 +1,4 @@
-export const menuSlide = {
+export const curvedNav = {
 	initial: {
 		x: 'calc(100% + 100px)',
 	},

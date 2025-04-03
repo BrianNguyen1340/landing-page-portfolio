@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 import { paths } from '~/utils/constants'
-import { menuSlide, scale, slide } from '~/anims/curvedMenu'
+import { curvedNav, scale, slide } from '~/anims/curvedNav'
 
 const navItems = [
 	{
@@ -126,8 +126,9 @@ export const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 
 	return (
 		<motion.nav
+			id='curved-nav'
 			className={`${className} fixed right-0 top-0 z-[3] h-screen w-full max-w-[500px] bg-[rgb(41,41,41)] text-white`}
-			variants={menuSlide}
+			variants={curvedNav}
 			initial='initial'
 			animate='enter'
 			exit='exit'

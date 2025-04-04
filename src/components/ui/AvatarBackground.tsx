@@ -8,7 +8,7 @@ export const AvatarBackground = () => {
 		>
 			<div className='absolute left-0 top-0 z-[1] h-full w-full'>
 				<img
-					src='/image/avatar1.png'
+					src='/image/avatar-girl.jpg'
 					alt='avatar'
 					className='absolute left-1/2 top-[10%] h-full w-auto -translate-x-1/2 object-cover align-middle'
 				/>

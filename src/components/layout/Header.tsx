@@ -15,10 +15,8 @@ import { ButtonSideMenu, SideNav } from '~/components/ui/Navigation/SideNav'
 
 export const Header = () => {
 	const headerRef = useRef<HTMLDivElement | null>(null)
+	const curvedNavButtonRef = useRef<HTMLDivElement | null>(null)
 	const curvedNavRef = useRef<HTMLDivElement | null>(null)
-	const curvedButtonRef = useRef<HTMLDivElement | null>(null)
-	const sideNavRef = useRef<HTMLDivElement | null>(null)
-	const sideNavButtonRef = useRef<HTMLDivElement | null>(null)
 
 	const [isCurvedNavActive, setIsCurvedNavActive] = useState<boolean>(false)
 	const [isSideMenuActive, setIsSideMenuActive] = useState<boolean>(false)
@@ -29,9 +27,7 @@ export const Header = () => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
 				curvedNavRef.current &&
-				!curvedNavRef.current.contains(event.target as Node) &&
-				curvedButtonRef.current &&
-				!curvedButtonRef.current.contains(event.target as Node)
+				!curvedNavRef.current.contains(event.target as Node)
 			) {
 				setIsCurvedNavActive(false)
 			}
@@ -47,48 +43,41 @@ export const Header = () => {
 	}, [isCurvedNavActive])
 
 	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				sideNavRef.current &&
-				!sideNavRef.current.contains(event.target as Node) &&
-				sideNavButtonRef.current &&
-				!sideNavButtonRef.current.contains(event.target as Node)
-			) {
+		if (isCurvedNavActive) setIsCurvedNavActive(false)
+		if (isSideMenuActive) setIsSideMenuActive(false)
+	}, [pathname])
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (isSideMenuActive) {
 				setIsSideMenuActive(false)
 			}
 		}
 
-		if (isSideMenuActive) {
-			document.addEventListener('mousedown', handleClickOutside)
-		}
-
+		window.addEventListener('scroll', handleScroll)
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside)
+			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [isSideMenuActive])
 
-	useEffect(() => {
-		if (isCurvedNavActive) setIsCurvedNavActive(false)
-	}, [pathname])
-
 	useLayoutEffect(() => {
-		if (!curvedButtonRef.current) return
+		if (!curvedNavButtonRef.current) return
 
 		gsap.registerPlugin(ScrollTrigger)
-		gsap.to(curvedButtonRef.current, {
+		gsap.to(curvedNavButtonRef.current, {
 			scrollTrigger: {
 				trigger: document.documentElement,
 				start: 0,
 				end: window.innerHeight,
 				onLeave: () => {
-					gsap.to(curvedButtonRef.current, {
+					gsap.to(curvedNavButtonRef.current, {
 						scale: 1,
 						duration: 0.25,
 						ease: 'power1.out',
 					})
 				},
 				onEnterBack: () => {
-					gsap.to(curvedButtonRef.current, {
+					gsap.to(curvedNavButtonRef.current, {
 						scale: 0,
 						duration: 0.25,
 						ease: 'power1.out',
@@ -99,10 +88,6 @@ export const Header = () => {
 		})
 	}, [])
 
-	const handleLinkClick = () => {
-		setIsSideMenuActive(false)
-	}
-
 	return (
 		<>
 			<header
@@ -112,25 +97,20 @@ export const Header = () => {
 				<Logo />
 				<Nav />
 				<motion.div
-					ref={sideNavRef}
 					className='absolute bg-[rgb(41,41,41)] text-white sm:hidden'
 					variants={sideNav}
 					animate={isSideMenuActive ? 'open' : 'closed'}
 					initial='closed'
 				>
-					<AnimatePresence>
-						{isSideMenuActive && <SideNav onLinkClick={handleLinkClick} />}
-					</AnimatePresence>
+					<AnimatePresence>{isSideMenuActive && <SideNav />}</AnimatePresence>
 				</motion.div>
-				<div ref={sideNavButtonRef} className='sm:hidden'>
-					<ButtonSideMenu
-						isActive={isSideMenuActive}
-						toggleMenu={() => setIsSideMenuActive(!isSideMenuActive)}
-						className='font-semibold tracking-wider text-[#fca311]'
-					/>
-				</div>
+				<ButtonSideMenu
+					isActive={isSideMenuActive}
+					toggleMenu={() => setIsSideMenuActive(!isSideMenuActive)}
+					className='font-semibold tracking-wider text-[#fca311] sm:hidden'
+				/>
 			</header>
-			<div ref={curvedButtonRef} className='fixed right-0 z-[4] scale-0'>
+			<div ref={curvedNavButtonRef} className='fixed right-0 z-[4] scale-0'>
 				<RoundedButton
 					onClick={() => setIsCurvedNavActive(!isCurvedNavActive)}
 					className='relative m-5 flex h-20 w-20 cursor-pointer items-center justify-center rounded-full bg-[#1c1d20]'
@@ -147,6 +127,9 @@ export const Header = () => {
 					</div>
 				)}
 			</AnimatePresence>
+			{isCurvedNavActive && (
+				<div className='fixed z-[1] h-screen w-screen bg-black opacity-30' />
+			)}
 		</>
 	)
 }

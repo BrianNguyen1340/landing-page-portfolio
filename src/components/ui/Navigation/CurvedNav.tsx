@@ -27,6 +27,17 @@ const navItems = [
 	},
 ]
 
+const footerLinks = [
+	{
+		href: 'https://www.facebook.com/profile.php?id=100042009667753',
+		content: 'facebook',
+	},
+	{
+		href: 'https://github.com/nhuuhuynhh',
+		content: 'github',
+	},
+]
+
 interface MenuLinkProps {
 	data: {
 		title: string
@@ -93,7 +104,7 @@ const Curved = () => {
 	}
 
 	return (
-		<svg className='absolute top-0 z-[-1] h-screen w-full fill-[rgb(41,41,41)] stroke-none'>
+		<svg className='absolute left-[-99px] top-0 z-[-1] h-screen w-full fill-[rgb(41,41,41)] stroke-none'>
 			<motion.path
 				variants={curve}
 				initial='initial'
@@ -110,11 +121,17 @@ const Footer = () => {
 			<div className='mb-4 text-start capitalize text-[rgb(153,153,153)]'>
 				socials
 			</div>
-			<div className='flex w-full justify-between gap-10 capitalize'>
-				<Link href='https://www.facebook.com/profile.php?id=100042009667753'>
-					facebook
-				</Link>
-				<Link href='https://github.com/nhuuhuynhh'>github</Link>
+			<div className='flex items-center gap-5'>
+				{footerLinks.map(({ href, content }, index) => (
+					<div key={index} className='flex justify-between gap-10 capitalize'>
+						<Link
+							href={href}
+							className='relative block after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-500 after:content-[""] hover:after:w-full'
+						>
+							{content}
+						</Link>
+					</div>
+				))}
 			</div>
 		</>
 	)
@@ -127,7 +144,7 @@ export const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 	return (
 		<motion.nav
 			id='curved-nav'
-			className={`${className} fixed right-0 top-0 z-[3] h-screen w-full max-w-[500px] bg-[rgb(41,41,41)] text-white`}
+			className={`${className} fixed right-0 top-0 z-[3] h-screen w-[500px] bg-[rgb(41,41,41)] text-white`}
 			variants={curvedNav}
 			initial='initial'
 			animate='enter'
@@ -141,16 +158,14 @@ export const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 					<div className='mb-10 border-b border-[1px_solid_rgb(153,153,153)] pb-10 text-base capitalize text-[rgb(153,153,153)]'>
 						<p>Navigation</p>
 					</div>
-					{navItems.map((data, index) => {
-						return (
-							<MenuLink
-								key={index}
-								data={{ title: data.content, href: data.href, index }}
-								isActive={selectedIndicator == data.href}
-								setSelectedIndicator={setSelectedIndicator}
-							/>
-						)
-					})}
+					{navItems.map(({ content, href }, index) => (
+						<MenuLink
+							key={index}
+							data={{ title: content, href, index }}
+							isActive={selectedIndicator == href}
+							setSelectedIndicator={setSelectedIndicator}
+						/>
+					))}
 				</div>
 				<Footer />
 			</div>

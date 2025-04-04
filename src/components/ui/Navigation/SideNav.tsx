@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -12,10 +11,6 @@ interface ButtonProps {
 
 interface PerspectiveTextProps {
 	label: string
-}
-
-interface SideNavProps {
-	onLinkClick: () => void
 }
 
 const links = [
@@ -40,11 +35,11 @@ const links = [
 const footerLinks = [
 	{
 		title: 'facebook',
-		href: '/https://www.facebook.com/profile.php?id=100042009667753',
+		href: 'https://www.facebook.com/profile.php?id=100042009667753',
 	},
 	{
 		title: 'github',
-		href: '/https://github.com/nhuuhuynhh',
+		href: 'https://github.com/nhuuhuynhh',
 	},
 ]
 
@@ -104,46 +99,56 @@ const PerspectiveText: React.FC<PerspectiveTextProps> = ({ label }) => {
 	)
 }
 
-export const SideNav: FC<SideNavProps> = ({ onLinkClick }) => {
+export const SideNav = () => {
 	return (
 		<div className='flex h-full flex-col justify-between overflow-hidden px-10 pb-[50px] pt-[100px]'>
-			<div className='flex flex-col gap-4'>
-				{links.map(({ title, href }, index) => (
-					<div
-						key={index}
-						style={{ perspective: '120px', perspectiveOrigin: 'bottom' }}
-					>
+			<div>
+				<div className='mb-10 border-b border-[1px_solid_rgb(153,153,153)] pb-10 text-base capitalize text-[rgb(153,153,153)]'>
+					<p>Navigation</p>
+				</div>
+				<div className='flex flex-col gap-4'>
+					{links.map(({ title, href }, index) => (
+						<div
+							key={index}
+							style={{ perspective: '120px', perspectiveOrigin: 'bottom' }}
+						>
+							<motion.div
+								variants={slideIn}
+								custom={index}
+								animate='enter'
+								exit='exit'
+								className='text-5xl capitalize'
+								key={index}
+							>
+								<Link href={href} className='block w-full'>
+									{title}
+								</Link>
+							</motion.div>
+						</div>
+					))}
+				</div>
+			</div>
+			<div>
+				<div className='mb-4 text-start capitalize text-[rgb(153,153,153)]'>
+					socials
+				</div>
+				<div className='flex flex-wrap gap-5'>
+					{footerLinks.map(({ title, href }, index) => (
 						<motion.div
 							variants={slideIn}
 							custom={index}
+							initial='initial'
 							animate='enter'
 							exit='exit'
-							className='text-5xl capitalize'
 							key={index}
+							className='mt-1 w-fit capitalize'
 						>
-							<Link href={href} className='block w-full' onClick={onLinkClick}>
-								{title}
-							</Link>
+							<div className='relative block after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-500 after:content-[""] hover:after:w-full'>
+								<Link href={href}>{title}</Link>
+							</div>
 						</motion.div>
-					</div>
-				))}
-			</div>
-			<div className='flex flex-wrap'>
-				{footerLinks.map(({ title, href }, index) => (
-					<motion.div
-						variants={slideIn}
-						custom={index}
-						initial='initial'
-						animate='enter'
-						exit='exit'
-						key={index}
-						className='mt-1 w-1/2 capitalize'
-					>
-						<Link href={href} className='block w-full' onClick={onLinkClick}>
-							{title}
-						</Link>
-					</motion.div>
-				))}
+					))}
+				</div>
 			</div>
 		</div>
 	)

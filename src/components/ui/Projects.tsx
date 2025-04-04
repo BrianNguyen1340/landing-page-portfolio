@@ -21,6 +21,15 @@ interface ModalProps {
 	projects: Project[]
 }
 
+interface ProjectProps {
+	index: number
+	title: string
+	description: string
+	href: string
+	// eslint-disable-next-line no-unused-vars
+	setModal: (modal: { active: boolean; index: number }) => void
+}
+
 const scaleAnimation = {
 	initial: { scale: 0, x: '-50%', y: '-50%' },
 	enter: {
@@ -36,6 +45,25 @@ const scaleAnimation = {
 		transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
 	},
 }
+
+const projects = [
+	{
+		title: 'SIXDO-SHOP',
+		src: '/image/sixdo.jpg',
+		color: 'rgb(224, 217, 209)',
+		href: 'https://www.figma.com/design/lTNlZAEkoVauUK81LxXZkM/SIXDO-SHOP?node-id=0-1&t=yy3h1q9hsGwhGJCD-1',
+		description: 'Design',
+		year: 2025,
+	},
+	{
+		title: 'WORKSPACE',
+		src: '/image/workspace.jpg',
+		color: 'rgb(224, 217, 209)',
+		href: 'https://www.figma.com/design/lTNlZAEkoVauUK81LxXZkM/SIXDO-SHOP?node-id=0-1&t=yy3h1q9hsGwhGJCD-1',
+		description: 'Design',
+		year: 2025,
+	},
+]
 
 const Modal: FC<ModalProps> = ({ modal, projects }) => {
 	const { active, index } = modal
@@ -103,7 +131,7 @@ const Modal: FC<ModalProps> = ({ modal, projects }) => {
 				variants={scaleAnimation}
 				initial='initial'
 				animate={active ? 'enter' : 'closed'}
-				className='pointer-events-none absolute z-10 flex h-[350px] w-[400px] items-center justify-center overflow-hidden bg-white'
+				className='pointer-events-none absolute flex h-[350px] w-[400px] items-center justify-center overflow-hidden bg-white'
 			>
 				<div
 					style={{ top: `${index * -100}%` }}
@@ -148,15 +176,6 @@ const Modal: FC<ModalProps> = ({ modal, projects }) => {
 	)
 }
 
-interface ProjectProps {
-	index: number
-	title: string
-	description: string
-	href: string
-	// eslint-disable-next-line no-unused-vars
-	setModal: (modal: { active: boolean; index: number }) => void
-}
-
 const Project: FC<ProjectProps> = ({
 	index,
 	title,
@@ -181,25 +200,6 @@ const Project: FC<ProjectProps> = ({
 		</Link>
 	)
 }
-
-const projects = [
-	{
-		title: 'SIXDO-SHOP',
-		src: '/image/sixdo.png',
-		color: '#000',
-		href: 'https://www.figma.com/design/lTNlZAEkoVauUK81LxXZkM/SIXDO-SHOP?node-id=0-1&t=yy3h1q9hsGwhGJCD-1',
-		description: 'Design',
-		year: 2025,
-	},
-	{
-		title: 'SIXDO-SHOP',
-		src: '/image/sixdo.png',
-		color: '#000',
-		href: 'https://www.figma.com/design/lTNlZAEkoVauUK81LxXZkM/SIXDO-SHOP?node-id=0-1&t=yy3h1q9hsGwhGJCD-1',
-		description: 'Design',
-		year: 2025,
-	},
-]
 
 export const Projects = () => {
 	const [modal, setModal] = useState<{ active: boolean; index: number }>({
@@ -246,7 +246,7 @@ export const Projects = () => {
 											<img
 												src={src}
 												alt={title}
-												className='mx-auto w-[85%] bg-cover'
+												className='mx-auto w-[85%] bg-cover transition-all duration-500 hover:scale-110'
 											/>
 										</div>
 									</div>

@@ -7,6 +7,7 @@ import { HomeIntro } from '~/components/ui/HomeIntro'
 import { InfiniteTextMoveOnScroll } from '~/components/ui/InfiniteText'
 import { JobTitle } from '~/components/ui/JobTitle'
 import { Projects } from '~/components/ui/Projects'
+import SlidingImage from '~/components/ui/SlidingImage'
 import useTitle from '~/hooks/useTitle'
 
 const index = () => {
@@ -14,37 +15,32 @@ const index = () => {
 
 	return (
 		<Curved>
-			<div id='home-page'>
-				<motion.section
-					variants={{
-						initial: {
-							y: 300,
+			<motion.section
+				variants={{
+					initial: {
+						y: 300,
+					},
+					enter: {
+						y: 0,
+						transition: {
+							duration: 1,
+							ease: [0.33, 1, 0.68, 1],
+							delay: 1.2,
 						},
-						enter: {
-							y: 0,
-							transition: {
-								duration: 1,
-								ease: [0.33, 1, 0.68, 1],
-								delay: 1.2,
-							},
-						},
-					}}
-					initial='initial'
-					animate='enter'
-					className='relative overflow-hidden bg-[#feefd0]'
-				>
-					<InfiniteTextMoveOnScroll />
-					<Hanger />
-					<JobTitle />
-					<AvatarBackground />
-				</motion.section>
-				<section className='mb-20 py-[clamp(5em,21vh,12em)] md:mb-0'>
-					<HomeIntro />
-				</section>
-				<section>
-					<Projects />
-				</section>
-			</div>
+					},
+				}}
+				initial='initial'
+				animate='enter'
+				className='relative overflow-hidden bg-[#feefd0]'
+			>
+				<InfiniteTextMoveOnScroll />
+				<Hanger />
+				<JobTitle />
+				<AvatarBackground />
+			</motion.section>
+			<HomeIntro />
+			<Projects />
+			<SlidingImage />
 		</Curved>
 	)
 }

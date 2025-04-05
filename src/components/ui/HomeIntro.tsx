@@ -6,7 +6,7 @@ import { CharacterOpacity } from '~/components/ui/TextAnimation/CharacterOpacity
 
 export const HomeIntro = () => {
 	return (
-		<div className='relative px-[calc(clamp(2.5em,8vw,8em)*2)]'>
+		<div className='relative mb-20 px-[calc(clamp(2.5em,8vw,8em)*2)] py-[clamp(5em,21vh,12em)] md:mb-0'>
 			<div className='flex w-full flex-col items-start justify-between md:flex-row'>
 				<CharacterOpacity
 					className='w-full text-2xl md:w-[70%] md:pr-14 md:text-4xl'

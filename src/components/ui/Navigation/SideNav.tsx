@@ -120,7 +120,10 @@ export const SideNav = () => {
 								className='text-5xl capitalize'
 								key={index}
 							>
-								<Link href={href} className='block w-full'>
+								<Link
+									href={href}
+									className='relative after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-500 hover:after:w-full'
+								>
 									{title}
 								</Link>
 							</motion.div>

@@ -27,7 +27,9 @@ export const Header = () => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
 				curvedNavRef.current &&
-				!curvedNavRef.current.contains(event.target as Node)
+				!curvedNavRef.current.contains(event.target as Node) &&
+				curvedNavButtonRef.current &&
+				!curvedNavButtonRef.current.contains(event.target as Node)
 			) {
 				setIsCurvedNavActive(false)
 			}
@@ -128,7 +130,7 @@ export const Header = () => {
 				)}
 			</AnimatePresence>
 			{isCurvedNavActive && (
-				<div className='fixed z-[1] h-screen w-screen bg-black opacity-30' />
+				<div className='fixed z-[1] h-full w-full bg-black opacity-30' />
 			)}
 		</>
 	)

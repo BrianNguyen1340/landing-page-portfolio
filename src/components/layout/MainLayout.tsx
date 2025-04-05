@@ -6,7 +6,7 @@ interface MainLayoutProps {
 
 export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 	return (
-		<main className='relative h-auto w-screen overflow-hidden bg-transparent'>
+		<main className='relative h-auto w-screen bg-transparent'>
 			<div className='relative box-border w-screen will-change-transform'>
 				{children}
 			</div>

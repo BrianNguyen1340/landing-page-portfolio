@@ -54,9 +54,9 @@ const SlidingImage = () => {
 	return (
 		<div
 			ref={container}
-			className='relative z-[1] flex flex-col gap-[3vw] bg-white pt-[calc(clamp(5em,21vh,12em)*0.75)]'
+			className='relative z-[1] flex flex-col gap-[3vw] bg-white sm:pt-[calc(clamp(5em,21vh,12em)*0.75)]'
 		>
-			<div className='relative flex flex-col gap-[3vw] overflow-hidden bg-white'>
+			<div className='relative hidden flex-col gap-[3vw] overflow-hidden bg-white sm:flex'>
 				<motion.div
 					style={{ x: x1 }}
 					className='relative left-[-10vw] flex w-[120vw] gap-[3vw]'
@@ -100,8 +100,8 @@ const SlidingImage = () => {
 					))}
 				</motion.div>
 			</div>
-			<motion.div style={{ height }} className='relative mt-10 bg-white'>
-				<div className='absolute z-[1] h-[1550%] w-full rounded-[0_0_50%_50%] bg-white' />
+			<motion.div style={{ height }} className='relative bg-white sm:mt-10'>
+				<div className='absolute z-[1] h-[1000%] w-full rounded-[0_0_50%_50%] bg-white' />
 			</motion.div>
 		</div>
 	)

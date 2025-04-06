@@ -15,32 +15,34 @@ const index = () => {
 
 	return (
 		<Curved>
-			<motion.section
-				variants={{
-					initial: {
-						y: 300,
-					},
-					enter: {
-						y: 0,
-						transition: {
-							duration: 1,
-							ease: [0.33, 1, 0.68, 1],
-							delay: 1.2,
+			<div>
+				<motion.section
+					variants={{
+						initial: {
+							y: 300,
 						},
-					},
-				}}
-				initial='initial'
-				animate='enter'
-				className='relative overflow-hidden bg-[#feefd0]'
-			>
-				<InfiniteTextMoveOnScroll />
-				<Hanger />
-				<JobTitle />
-				<AvatarBackground />
-			</motion.section>
-			<HomeIntro />
-			<Projects />
-			<SlidingImage />
+						enter: {
+							y: 0,
+							transition: {
+								duration: 1,
+								ease: [0.33, 1, 0.68, 1],
+								delay: 1.2,
+							},
+						},
+					}}
+					initial='initial'
+					animate='enter'
+					className='relative overflow-hidden bg-[#feefd0]'
+				>
+					<InfiniteTextMoveOnScroll />
+					<Hanger />
+					<JobTitle />
+					<AvatarBackground />
+				</motion.section>
+				<HomeIntro />
+				<Projects />
+				<SlidingImage />
+			</div>
 		</Curved>
 	)
 }

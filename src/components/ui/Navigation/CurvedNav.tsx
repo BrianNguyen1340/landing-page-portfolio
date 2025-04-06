@@ -144,7 +144,7 @@ export const CurvedNav: FC<CurvedNavProps> = ({ className }) => {
 	return (
 		<motion.nav
 			id='curved-nav'
-			className={`${className} fixed right-0 top-0 z-[3] h-screen w-[320px] max-w-[500px] bg-[rgb(41,41,41)] text-white xs:w-[450px]`}
+			className={`${className} fixed right-0 top-0 z-[3] h-screen w-full bg-[rgb(41,41,41)] text-white xs:w-[400px]`}
 			variants={curvedNav}
 			initial='initial'
 			animate='enter'

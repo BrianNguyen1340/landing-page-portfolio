@@ -236,7 +236,7 @@ export const Projects = () => {
 							key={index}
 							className='relative h-auto w-full overflow-hidden sm:w-1/2'
 						>
-							<div className='w-full px-[calc(6vw*0.25)] pb-20'>
+							<div className='w-full px-[calc(6vw*0.25)] pb-20 last-of-type:pb-0 sm:last-of-type:pb-20'>
 								<Link
 									className='relative flex flex-wrap overflow-hidden'
 									href={href}

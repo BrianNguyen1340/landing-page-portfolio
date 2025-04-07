@@ -55,14 +55,6 @@ const projects = [
 		description: 'Design',
 		year: 2025,
 	},
-	{
-		title: 'WORKSPACE',
-		src: '/image/workspace.jpg',
-		color: 'rgb(224, 217, 209)',
-		href: 'https://www.figma.com/design/lTNlZAEkoVauUK81LxXZkM/SIXDO-SHOP?node-id=0-1&t=yy3h1q9hsGwhGJCD-1',
-		description: 'Design',
-		year: 2025,
-	},
 ]
 
 const Modal: FC<ModalProps> = ({ modal, projects }) => {
@@ -230,13 +222,16 @@ export const Projects = () => {
 				<Modal modal={modal} projects={projects} />
 			</div>
 			<div className='mx-auto max-w-[100em] px-[calc(6vw*0.75)] lg:hidden'>
+				<div className='w-full px-[calc(6vw*0.25)] text-start uppercase text-[#1c1d20] opacity-50'>
+					recent works
+				</div>
 				<ul className='relative flex w-full flex-wrap pt-[clamp(1.5em,4vw,2.5em)]'>
 					{projects.map(({ title, href, src, description, year }, index) => (
 						<li
 							key={index}
-							className='relative h-auto w-full overflow-hidden sm:w-1/2'
+							className='relative h-auto w-full overflow-hidden pb-20 last-of-type:pb-0 sm:w-1/2'
 						>
-							<div className='w-full px-[calc(6vw*0.25)] pb-20 last-of-type:pb-0 sm:last-of-type:pb-20'>
+							<div className='w-full px-[calc(6vw*0.25)]'>
 								<Link
 									className='relative flex flex-wrap overflow-hidden'
 									href={href}
